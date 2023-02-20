@@ -5,3 +5,15 @@ Projeto e-commerce desenvolvido com a tecnologia ASPNET, seguindo uma estrutura 
 - Diagrama da arquitetura distribuida do projeto e-commerce
 
 ![Logo do Markdown](images/ECommerceDiagrama.png)
+
+# Migrations
+
+instalar global -> dotnet tool install --global dotnet-ef
+
+- Criar Migration
+
+otnet ef migrations add [NOME]
+
+- Criar seu esquema e banco de dados
+
+dotnet ef database update
