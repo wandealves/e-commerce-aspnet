@@ -1,0 +1,12 @@
+C:\Dev\_Repositorio\e-commerce-aspnet\ECommerce\src\Bulding Blocks\NSE.Core\bin\Debug\net6.0\NSE.Core.deps.json
+C:\Dev\_Repositorio\e-commerce-aspnet\ECommerce\src\Bulding Blocks\NSE.Core\bin\Debug\net6.0\NSE.Core.dll
+C:\Dev\_Repositorio\e-commerce-aspnet\ECommerce\src\Bulding Blocks\NSE.Core\bin\Debug\net6.0\NSE.Core.pdb
+C:\Dev\_Repositorio\e-commerce-aspnet\ECommerce\src\Bulding Blocks\NSE.Core\obj\Debug\net6.0\NSE.Core.csproj.AssemblyReference.cache
+C:\Dev\_Repositorio\e-commerce-aspnet\ECommerce\src\Bulding Blocks\NSE.Core\obj\Debug\net6.0\NSE.Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Dev\_Repositorio\e-commerce-aspnet\ECommerce\src\Bulding Blocks\NSE.Core\obj\Debug\net6.0\NSE.Core.AssemblyInfoInputs.cache
+C:\Dev\_Repositorio\e-commerce-aspnet\ECommerce\src\Bulding Blocks\NSE.Core\obj\Debug\net6.0\NSE.Core.AssemblyInfo.cs
+C:\Dev\_Repositorio\e-commerce-aspnet\ECommerce\src\Bulding Blocks\NSE.Core\obj\Debug\net6.0\NSE.Core.csproj.CoreCompileInputs.cache
+C:\Dev\_Repositorio\e-commerce-aspnet\ECommerce\src\Bulding Blocks\NSE.Core\obj\Debug\net6.0\NSE.Core.dll
+C:\Dev\_Repositorio\e-commerce-aspnet\ECommerce\src\Bulding Blocks\NSE.Core\obj\Debug\net6.0\refint\NSE.Core.dll
+C:\Dev\_Repositorio\e-commerce-aspnet\ECommerce\src\Bulding Blocks\NSE.Core\obj\Debug\net6.0\NSE.Core.pdb
+C:\Dev\_Repositorio\e-commerce-aspnet\ECommerce\src\Bulding Blocks\NSE.Core\obj\Debug\net6.0\ref\NSE.Core.dll

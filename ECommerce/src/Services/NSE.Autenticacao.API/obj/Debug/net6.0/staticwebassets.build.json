@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "GjGgfvfgSBqLveMtXYbMe1bi/EKHixg4dQxsq65z6Fs=",
+  "Source": "NSE.Autenticacao.API",
+  "BasePath": "_content/NSE.Autenticacao.API",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
