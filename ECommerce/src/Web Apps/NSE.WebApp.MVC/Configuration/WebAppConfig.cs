@@ -4,11 +4,28 @@ namespace NSE.WebApp.MVC.Configuration
 {
     public static class WebAppConfig
     {
-        public static IServiceCollection AddWebAppConfiguration(this IServiceCollection services)
+        public static IServiceCollection AddWebAppConfiguration(this IServiceCollection services, ConfigurationManager configuration)
         {
             services.AddControllersWithViews();
+            services.Configure<AppSettings>(configuration);
 
             return services;
+        }
+
+        public static ConfigurationManager AddWebAppConfiguration(this ConfigurationManager config, IWebHostEnvironment environment)
+        {
+            config
+            .SetBasePath(Directory.GetCurrentDirectory())
+            .AddJsonFile("appsettings.json", true, true)
+            .AddJsonFile($"appsettings.{environment.EnvironmentName}.json", false, true)
+            .AddEnvironmentVariables();
+
+            if (environment.IsDevelopment())
+            {
+                config.AddUserSecrets<Program>();
+            }
+
+            return config;
         }
 
         public static WebApplication UseWebAppConfiguration(this WebApplication app)
