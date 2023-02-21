@@ -1,11 +1,24 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using System.IdentityModel.Tokens.Jwt;
+using System.Security.Claims;
+
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Mvc;
 
 using NSE.WebApp.MVC.Models;
+using NSE.WebApp.MVC.Services;
 
 namespace NSE.WebApp.MVC.Controllers
 {
     public class IdentidadeController : Controller
     {
+        private readonly IAutenticacaoService _autenticacaoService;
+
+        public IdentidadeController(IAutenticacaoService autenticacaoService)
+        {
+            _autenticacaoService = autenticacaoService;
+        }
+
         [HttpGet]
         [Route("nova-conta")]
         public IActionResult Registro()
@@ -18,6 +31,9 @@ namespace NSE.WebApp.MVC.Controllers
         public async Task<IActionResult> Registro(UsuarioRegistro usuarioRegistro)
         {
             if (!ModelState.IsValid) return View(usuarioRegistro);
+
+            var usuarioRespostaLogin = await _autenticacaoService.Registro(usuarioRegistro);
+            await RealizarLogin(usuarioRespostaLogin);
 
             return RedirectToAction("Index", "Home");
         }
@@ -35,6 +51,8 @@ namespace NSE.WebApp.MVC.Controllers
         {
             if (!ModelState.IsValid) return View(usuarioLogin);
 
+            var usuarioRespostaLogin = await _autenticacaoService.Login(usuarioLogin);
+            await RealizarLogin(usuarioRespostaLogin);
             return RedirectToAction("Index", "Home");
         }
 
@@ -43,6 +61,33 @@ namespace NSE.WebApp.MVC.Controllers
         public async Task<IActionResult> Logout()
         {
             return RedirectToAction("Index", "Home");
+        }
+
+        private async Task RealizarLogin(UsuarioRespostaLogin? usuarioResposta)
+        {
+            if (usuarioResposta == null) return;
+
+            var token = ObterTokenFormatado(usuarioResposta.AccessToken);
+
+            if (token == null) return;
+
+            var claims = new List<Claim>();
+            claims.Add(new Claim("JWT", usuarioResposta.AccessToken));
+            claims.AddRange(token.Claims);
+
+            var claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
+            var authProperties = new AuthenticationProperties
+            {
+                ExpiresUtc = DateTimeOffset.UtcNow.AddMinutes(60),
+                IsPersistent = true,
+            };
+
+            await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, new ClaimsPrincipal(claimsIdentity), authProperties);
+        }
+
+        private static JwtSecurityToken? ObterTokenFormatado(string jwtToken)
+        {
+            return new JwtSecurityTokenHandler().ReadToken(jwtToken) as JwtSecurityToken;
         }
     }
 }
