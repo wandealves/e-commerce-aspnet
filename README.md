@@ -14,6 +14,14 @@ instalar global -> dotnet tool install --global dotnet-ef
 
 otnet ef migrations add [NOME]
 
+ou
+
+Add-Migration [NOME]
+
 - Criar seu esquema e banco de dados
 
 dotnet ef database update
+
+ou
+
+update-database
