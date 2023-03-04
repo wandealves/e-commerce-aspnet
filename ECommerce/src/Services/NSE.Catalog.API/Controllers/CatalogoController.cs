@@ -1,10 +1,13 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 
 using NSE.Catalog.API.Models;
+using NSE.WebAPI.Core.Identidade;
 
 namespace NSE.Catalog.API.Controllers
 {
     [ApiController]
+    [Authorize]
     public class CatalogoController : ControllerBase
     {
         private readonly IProdutoRepository _produtoRepository;
@@ -14,12 +17,14 @@ namespace NSE.Catalog.API.Controllers
             _produtoRepository = produtoRepository;
         }
 
+        [AllowAnonymous]
         [HttpGet("catalogo/produtos")]
         public async Task<IEnumerable<Produto?>> Index()
         {
             return await _produtoRepository.ObterTodos();
         }
 
+        [ClaimsAuthorize("Catalogo", "Ler")]
         [HttpGet("catalogo/produtos/{id}")]
         public async Task<Produto?> ProdutoDetalhe(Guid id)
         {
