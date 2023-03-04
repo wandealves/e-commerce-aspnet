@@ -7,8 +7,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 
-using NSE.Autenticacao.API.Extensions;
 using NSE.Autenticacao.API.Models;
+using NSE.WebAPI.Core.Identidade;
 
 namespace NSE.Autenticacao.API.Controllers
 {

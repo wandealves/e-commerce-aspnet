@@ -1,4 +1,4 @@
-﻿namespace NSE.Autenticacao.API.Extensions
+﻿namespace NSE.WebAPI.Core.Identidade
 {
     public class AppSettings
     {

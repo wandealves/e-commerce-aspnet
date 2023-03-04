@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 
 using NSE.Catalog.API.Data;
+using NSE.WebAPI.Core.Identidade;
 
 namespace NSE.Catalog.API.Configuration
 {
@@ -45,6 +46,7 @@ namespace NSE.Catalog.API.Configuration
         {
             app.UseHttpsRedirection();
             app.UseCors(policyName);
+            app.UseAuthConfiguration();
             app.MapControllers();
         }
     }
