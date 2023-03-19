@@ -1,3 +1,5 @@
+Comunicação com APIs - Utilizando Refit para consumo de APIs
+
 # Ecommerce
 
 Projeto e-commerce desenvolvido com a tecnologia ASPNET, seguindo uma estrutura distribuida.
